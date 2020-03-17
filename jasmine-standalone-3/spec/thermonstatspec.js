@@ -12,16 +12,19 @@ describe('Thermostat', function() {
   });
 
   it('increases temperature', function() {
-    thermostat.up();
+    thermostat.up(1);
     expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
 
   it('decreases temperature', function(){
-    thermostat.down();
+    thermostat.down(1);
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
-
+  it('has min temp 10 degrees', function(){
+    thermostat.down(20);
+    expect(thermostat.getCurrentTemperature()).toEqual(10);
+  });
 
 
 

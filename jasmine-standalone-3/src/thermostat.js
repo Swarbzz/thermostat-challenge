@@ -8,10 +8,13 @@ Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
 };
 
-Thermostat.prototype.up = function() {
-  this.temperature += 1;
+Thermostat.prototype.up = function(number) {
+  this.temperature += number;
 };
 
-Thermostat.prototype.down = function() {
-  this.temperature -= 1;
+Thermostat.prototype.down = function(number) {
+  this.temperature -= number;
+  if(this.temperature < 10){
+    this.temperature = 10;
+  };
 };
