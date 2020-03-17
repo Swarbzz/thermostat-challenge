@@ -42,4 +42,36 @@ describe('Thermostat', function() {
     expect(thermostat.isPowerSavingModeOn()).toBe(true);
   });
 
+  it('max temperature is 25 if PSM is on', function(){
+    thermostat.up(20);
+    expect(thermostat.temperature).toEqual(25);
+  });
+
+  it('max temperature is 32 if PSM is off', function(){
+    thermostat.switchPowerSavingModeOff();
+    thermostat.up(20);
+    expect(thermostat.temperature).toEqual(32);
+  });
+
+  it('resets temperature to 20', function(){
+    thermostat.up(4);
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20);
+  });
+
+  it('returns low-usage if temp < 18', function(){
+    thermostat.down(3);
+    expect(thermostat.usage()).toEqual('low-usage');
+  });
+
+  it('returns medium-usage if temp < 25', function(){
+    thermostat.up(3);
+    expect(thermostat.usage()).toEqual('medium-usage');
+  });
+
+  it('returns high-usage if temp > 24', function(){
+    thermostat.up(10);
+    expect(thermostat.usage()).toEqual('high-usage');
+  });
+
 });
