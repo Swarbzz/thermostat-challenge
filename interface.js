@@ -2,7 +2,7 @@ $(document).ready(function() {
     var thermostat = new Thermostat();
     updateTemperature();
 
-    displayWeather('London');
+    displayWeather();
     $('#select-city').submit(function(event) {
       event.preventDefault();
       var city = $('#current-city').val();
@@ -37,8 +37,8 @@ $(document).ready(function() {
   });
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.temperature);
-    $('#temperature').attr('class', thermostat.usage());
+    $('#current-temperature').text(thermostat.temperature);
+    $('#current-temperature').attr('class', thermostat.usage());
   }
 
   function displayWeather(city) {
