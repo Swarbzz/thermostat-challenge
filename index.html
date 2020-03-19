@@ -2,11 +2,18 @@
 <html>
   <head>
     <link rel='stylesheet' href='public/stylesheet.css'>
-    <title>Thermostat bitches</title>
+    <title>Thermostat</title>
   </head>
   <body>
     <section>
-      <h1 id="temperature"></h1>
+      <!-- <h1 id="temperature"></h1> -->
+      <h1>Current temperature: <span id="current-temperature"></span></h1>
+      <select id="current-city">
+        <option value="london">London</option>
+        <option value="cambridge">Cambridge</option>
+        <option value="paris">Paris</option>
+        <option value="tokyo">Tokyo</option>
+      </select>
       <p>
         <button id="up">+</button>
         <button id="down">-</button>
